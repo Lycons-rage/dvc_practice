@@ -27,14 +27,16 @@ pip install -r requirements.txt
     - We cannot use DVC alone, we have to use Git first then we can use DVC along with Git
     - Experiment Tracking
     - Efficient Storage
- - .dvc directory must be created inside our project, inside which there is .dvc/cache, .dvc/temp, .dvc/state files
- - dvc.yaml, conatins entire config of dvc
- - .dvcignore, pretty self-explainatory
- - dvc.lock, tracking each and every experiment
- - data.dvc file, storing data and version in terms of dvc, name can be anything but extension must be .dvc 
- - .dvcconfig
+ - **.dvc directory** must be created inside our project, inside which there is .dvc/cache, .dvc/temp, .dvc/state files
+ - **dvc.yaml**, conatins entire config of dvc
+ - **.dvcignore**, pretty self-explainatory
+ - **dvc.lock**, tracking each and every experiment
+ - **data.dvc** file, storing data and version in terms of dvc, name can be anything but extension must be .dvc 
+ - **.dvcconfig**
  - something similar to git, no?!
  - we created pipelines manually in our diamond_price_predictor project, that can be automated using dvc
+ - in first execution of ```dvc repro``` command, everything is going to be track in **dvc.lock** file
+ - suppose, two stages were created stage_01 and stage_02 and after initial execution, some changes were made in stage_02 and stage_01 remains as it it, now when we execute ```dvc repro``` command, it's only going to update stage_02 and thus will save time in ML execution
 
 ### Commands of DVC :
  - ```dvc init``` : to initialise a new dvc project in current directory
@@ -54,4 +56,4 @@ pip install -r requirements.txt
  - stages will be executed in the config specified in dvc.yaml file
  - dvc.lock file will be created inside the root project directory in which all the info regarding stages' execution can be found
  - all the respective output will be stored in cache inside .dvc directory
- - run ```dvc dag``` to visualise a directed acyclic graph or dependencies
+ - run ```dvc dag``` to visualise a directed acyclic graph of dependencies
