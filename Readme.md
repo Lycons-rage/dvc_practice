@@ -43,7 +43,15 @@ pip install -r requirements.txt
  - ```dvc remote add public_url``` : to connect to remote location
  - ```dvc push``` : to push to the remote location
  - ```dvc pull``` : to pull from the remote location
- - ```dvc dag```
+ - ```dvc dag``` : to visualise a directed acyclic graph of our dependencies
 
-### How tos of DVC:
+### How to(s) of DVC:
  - run ```dvc init``` to initialise a local dvc project
+ - you'll see a .dvc directory created in your project along
+ - prepare the project files in sequential stages or phases
+ - create a dvc.yaml file and set commands to be executed, stage dependencies and their respective outputs
+ - run ```dvc repro``` to execute the stages 
+ - stages will be executed in the config specified in dvc.yaml file
+ - dvc.lock file will be created inside the root project directory in which all the info regarding stages' execution can be found
+ - all the respective output will be stored in cache inside .dvc directory
+ - run ```dvc dag``` to visualise a directed acyclic graph or dependencies
