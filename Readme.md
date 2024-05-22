@@ -57,3 +57,9 @@ pip install -r requirements.txt
  - dvc.lock file will be created inside the root project directory in which all the info regarding stages' execution can be found
  - all the respective output will be stored in cache inside .dvc directory
  - run ```dvc dag``` to visualise a directed acyclic graph of dependencies
+
+### Implementing the concepts of DVC in a ML project
+ - First of all, divide the project into stages
+ - Decide which stage is going to be dependent on which one and what's going to be their respective inputs and outputs
+ - Code the stages and update the dvc.yaml file
+ - Follow the just above content
